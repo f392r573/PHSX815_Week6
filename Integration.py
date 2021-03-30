@@ -9,14 +9,6 @@ import matplotlib.pyplot as plt
 import scipy.integrate as integrate
 
 
-# We want to estimate the following integral ∫ e^{x^3} dx from -1 to 1.
-
-# HW7 ##
-# Implement a Monte Carlo integration to a function in one or more dimensions.
-# Quantify the accuracy of your MC integral as a function of the number of sample points 
-# compare with the accuracy of your deterministic methods from HW #6
-
-
 # exponential function
 def f(x):
     return np.exp(x**3)
