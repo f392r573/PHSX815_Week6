@@ -9,17 +9,9 @@ import matplotlib.pyplot as plt
 import scipy.integrate as integrate
 
 
-# We want to estimate the following integral ∫ e^{x^3} dx from -1 to 1.
 
-# HW7 ##
-# Implement a Monte Carlo integration to a function in one or more dimensions.
-# Quantify the accuracy of your MC integral as a function of the number of sample points 
-# compare with the accuracy of your deterministic methods from HW #6
-
-
-# exponential function
 def f(x):
-    return np.exp(x**3)
+    return np.cos(x)
 
 # trapezoidal rule
 def trapz(f, a, b, n):
@@ -125,32 +117,19 @@ if __name__ == "__main__":
     tz_err = np.array(tz_err)
     mc_err = np.array(mc_err)
     
-    # define x -axis as number of integration 0~n
     xn = np.arange(1,n+1)
     plt.figure(figsize=[12,7])
 
-    plt.plot(xn, tz_err, 'ro', label='Using Trapezoidal rule Method ')
-    plt.plot(xn, gs_err, 'go', label='Using Gaussian quadrature Method ')
-    plt.plot(xn, mc_err, 'bo', alpha=0.4, label='Using Monte Carlo Method ')
-    #plt.plot(xn, upper, 'b', xn, lower, 'b')
-    plt.fill_between(xn, mc_err, mc_err, color='grey',alpha=0.5,label=r'Monte Carlo Error Spread')
-    #plt.plot(xn, tz-gs, 'ko-', label='Difference of two integration methods ')
-    plt.ylabel("Difference of True value and numerical integrals (True value - numerical estimation)")
-    plt.xlabel("Number of intervals for integration (N)")
+    plt.plot(xn, tz_err,  label='Using Trapezoidal rule Method ')
+    plt.plot(xn, gs_err,  label='Using Gaussian quadrature Method ')
+    plt.plot(xn, mc_err,  alpha=0.4, label='Using Monte Carlo Method ')    
+    plt.fill_between(xn, mc_err, mc_err, color='red',alpha=0.5,label=r'Monte Carlo Error Spread')
+
+    plt.ylabel("(True value - numerical estimation)")
+    plt.xlabel("(N)")
     plt.legend()
     plt.grid()
     plt.savefig("DiffvsN_integration.pdf")
-    # Plot sigma filled in uncertainty range
-    #plt.figure(figsize=[12,7])
-    #plt.plot(xn, tz, 'r^', label='Using Trapezoidal rule Method ')
-    #plt.plot(xn, gs, 'g^', label='Using Gaussian quadrature Method ')
-    #plt.plot(xn, true, 'ko-', label='True integration Value ')
-    #plt.fill_between(xn, tz-tz_err, tz+tz_err, color='grey',alpha=0.5,label=r'Trapezoidal rule error Spread')
-    #plt.fill_between(xn, gs-gs_err, gs+gs_err, color='yellow',alpha=0.5,label=r'Gaussian quadrature error Spread')
-    #plt.ylabel("Estimate of numerical integrals")
-    #plt.xlabel("Number of intervals for integration (N)")
-    #plt.legend()
-    #plt.grid()
-    #plt.savefig("IntegralvsN.pdf")
+
     plt.show()
     
