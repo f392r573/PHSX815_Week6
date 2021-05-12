@@ -9,7 +9,11 @@ import matplotlib.pyplot as plt
 import scipy.integrate as integrate
 
 
+<<<<<<< HEAD
 
+=======
+# exponential function
+>>>>>>> e856b3adf10e01d94612d4b7d48f835c651db14f
 def f(x):
     return np.cos(x)
 
