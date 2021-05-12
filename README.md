@@ -8,6 +8,4 @@
 
 ## Code Usage
 
--Can be run from the command line using the -h flag to display usage options.
-
--Python Integration.py -N [number of intervals] -a [lower bound of integration] -b [upper bound of integration]
+-Can be run from python3 Integration.py
